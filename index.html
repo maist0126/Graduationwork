@@ -14,14 +14,24 @@
 	
 	<div data-role='page'>
 		<div data-role='header'>
-			<h1>Header 입니다.</h1>
+			<h1>현재 시간</h1>
 		</div>
 		<div data-role='content'>
 			<p>Contents 입니다.</p>
 		</div>
 		<div data-role='footer'>
-			<h2>Footer 입니다.</h2>
+			<h2>조작 버튼</h2>
 		</div>
-						
+		<div data-role='content'>
+			<div style="float: left; width: 33%;">
+			<button type="button" style="color: #ffffff; background-color: blue; font-weight: 300;" onclick="alert('동의하기')"> 동의하기 </button>
+			</div>
+			<div style="float: left; width: 33%;">
+			<button type="button" style="color: #ffffff; background-color: red; font-weight: 300;" onclick="alert('반대하기')"> 반대하기 </button>
+			</div>
+			<div style="float: left; width: 33%;">
+			<button type="button" style="color: #ffffff; background-color: green; font-weight: 300;" onclick="alert('발언하기')"> 발언하기 </button>
+			</div>
+		</div>						
 </body>
 </html>
