@@ -9,41 +9,24 @@
 <body>
 	<script src="./jquery-1.11.1.min.js"></script>
 	<script src="./jquery.mobile-1.4.5.min.js"></script>
-	<script type="text/javascript" src="layout.js"></script>
-	
+	<script type="text/javascript" src="timer.js"></script>
 	<div data-role='page'>
-		<div data-role='header'>
-			<h1>현재 시간</h1>
+		<button type="button" style="color: #ffffff; background-color: black; font-weight: 300; padding-top: 20px ;padding-bottom: 20px; font-size:20px;" onclick="start()"> 시작하기 </button>
+		<div data-role='header' id= "header">
+			<h2>남은 시간</h2>
 		</div>
 		<div data-role='content'>
-			<div id="clockdiv">
-			  <div>
-			    <span class="days"></span>
-			    <div class="smalltext">Days</div>
-			  </div>
-			  <div>
-			    <span class="hours"></span>
-			    <div class="smalltext">Hours</div>
-			  </div>
-			  <div>
-			    <span class="minutes"></span>
-			    <div class="smalltext">Minutes</div>
-			  </div>
-			  <div>
-			    <span class="seconds"></span>
-			    <div class="smalltext">Seconds</div>
-			  </div>
-			</div>
+			<h1 id="timer"></h1>
 		</div>
-		<div data-role='footer'>
+		<div data-role='footer' id= "footer" style="color: #ffffff; background-color: #aaaaaa;">
 			<h2>조작 버튼</h2>
 		</div>
 		<div data-role='content'>
 			<div style="float: left; width: 33%;">
-			<button type="button" style="color: #ffffff; background-color: blue; font-weight: 300; padding-top: 20px ;padding-bottom: 20px; font-size:20px;" onclick="alert('동의하기')"> 더 듣고 싶어요 </button>
+			<button type="button" style="color: #ffffff; background-color: blue; font-weight: 300; padding-top: 20px ;padding-bottom: 20px; font-size:20px;" onclick="add()"> 더 듣고 싶어요 </button>
 			</div>
 			<div style="float: left; width: 33%;">
-			<button type="button" style="color: #ffffff; background-color: red; font-weight: 300; padding-top: 20px ;padding-bottom: 20px; font-size:20px;" onclick="alert('반대하기')"> 그만 듣고 싶어요 </button>
+			<button type="button" style="color: #ffffff; background-color: red; font-weight: 300; padding-top: 20px ;padding-bottom: 20px; font-size:20px;" onclick="subtract()"> 그만 듣고 싶어요 </button>
 			</div>
 			<div style="float: left; width: 33%;">
 			<button type="button" style="color: #ffffff; background-color: green; font-weight: 300; padding-top: 20px ;padding-bottom: 20px; font-size:20px;" onclick="alert('발언하기')"> 나도 말할래요 </button>
