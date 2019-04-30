@@ -19,7 +19,7 @@ function msg_time() {
   document.all.timer.innerHTML = m;   // div 영역에 보여줌 
   
   var hd = document.getElementById("header");
-  hd.style.backgroundColor = 'black' ;
+  hd.style.backgroundColor = '#aaaaaa' ;
 
   if (RemainDate < 0) {      
     // 시간이 종료 되었으면..
