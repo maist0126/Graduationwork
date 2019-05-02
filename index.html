@@ -7,8 +7,10 @@
 	<link rel="stylesheet" href="./jquery.mobile-1.4.5.min.css" />
 </head>
 <body>
+	<script src="https://www.gstatic.com/firebasejs/5.11.0/firebase.js"></script>
 	<script src="./jquery-1.11.1.min.js"></script>
 	<script src="./jquery.mobile-1.4.5.min.js"></script>
+	<script src="./app.js"></script>
 	<script type="text/javascript" src="timer.js"></script>
 	<div data-role='page'>
 		<button type="button" style="color: #ffffff; background-color: black; font-weight: 300; padding-top: 20px ;padding-bottom: 20px; font-size:20px;" onclick="start()"> 시작하기 </button>
@@ -31,13 +33,13 @@
 		</div>
 				<div data-role='content'>
 			<div style="float: left; width: 33%;">
-			<button type="button" style="color: #ffffff; background-color: green; font-weight: 300; padding-top: 20px ;padding-bottom: 20px; font-size:20px;" onclick="alert('발언하기')"> 유저 1 발언 </button>
+			<button type="button" style="color: #ffffff; background-color: green; font-weight: 300; padding-top: 20px ;padding-bottom: 20px; font-size:20px;" onclick="speak(1)"> 유저 1 발언 </button>
 			</div>
 			<div style="float: left; width: 33%;">
-			<button type="button" style="color: #ffffff; background-color: green; font-weight: 300; padding-top: 20px ;padding-bottom: 20px; font-size:20px;" onclick="alert('발언하기')"> 유저 2 발언 </button>
+			<button type="button" style="color: #ffffff; background-color: green; font-weight: 300; padding-top: 20px ;padding-bottom: 20px; font-size:20px;" onclick="speak(2)"> 유저 2 발언 </button>
 			</div>
 			<div style="float: left; width: 33%;">
-			<button type="button" style="color: #ffffff; background-color: green; font-weight: 300; padding-top: 20px ;padding-bottom: 20px; font-size:20px;" onclick="alert('발언하기')"> 유저 3 발언 </button>
+			<button type="button" style="color: #ffffff; background-color: green; font-weight: 300; padding-top: 20px ;padding-bottom: 20px; font-size:20px;" onclick="speak(3)"> 유저 3 발언 </button>
 			</div>
 		</div>							
 </body>
