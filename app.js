@@ -28,10 +28,6 @@ var start_status = 1;
 		time: RemainDate,
 		order: real_order
 	});
-	firebase.database().ref().child('order').on('value', gotTime);
-	console.log(RemainDate);
-	console.log(order);
-	console.log(real_order);
 }());
 
 function speak(userId){
