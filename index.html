@@ -11,17 +11,25 @@
 	<script src="./jquery-1.11.1.min.js"></script>
 	<script src="./jquery.mobile-1.4.5.min.js"></script>
 	<script src="./app.js"></script>
-	<script type="text/javascript" src="timer.js"></script>
 	<div data-role='page'>
-		<button type="button" style="color: #ffffff; background-color: black; font-weight: 300; padding-top: 20px ;padding-bottom: 20px; font-size:20px;" onclick="start()"> 시작하기 </button>
-		<div data-role='header' id= "header">
-			<h2>남은 시간</h2>
-		</div>
 		<div data-role='content'>
-			<h1 id="timer"></h1>
+			<div style="float: left; width: 33%;">
+				<button type="button" style="color: #ffffff; background-color: black; font-weight: 300; padding-top: 20px ;padding-bottom: 20px; font-size:20px;" onclick="start()"> 발언 시작 </button>
+			</div>
+			<div style="float: left; width: 33%;">
+				<button type="button" style="color: #ffffff; background-color: black; font-weight: 300; padding-top: 20px ;padding-bottom: 20px; font-size:20px;" onclick="stop()"> 발언 종료 </button>
+			</div>
+			<div style="float: left; width: 33%;">
+				<div id="current" style="float: left; width: 50%; color: #000000; font-weight: 700; margin-top: 10px; margin-bottom: 10px; padding-top: 10px ;padding-bottom: 10px; font-size:30px;">
+
+				</div>
+				<div id="next" style="float: left; width: 50%; color: #999999; font-weight: 300; margin-top: 10px; margin-bottom: 10px; padding-top: 10px ;padding-bottom: 10px; font-size:30px;">
+					
+				</div>
+			</div>
 		</div>
-		<div data-role='footer' id= "footer" style="color: #ffffff; background-color: #aaaaaa;">
-			<h2>조작 버튼</h2>
+		<div data-role='footer' id= "footer">
+			<h5 id="timer"></h5>
 		</div>
 		<div data-role='content'>
 			<div style="float: left; width: 50%;">
@@ -33,13 +41,13 @@
 		</div>
 				<div data-role='content'>
 			<div style="float: left; width: 33%;">
-			<button type="button" style="color: #ffffff; background-color: green; font-weight: 300; padding-top: 20px ;padding-bottom: 20px; font-size:20px;" onclick="speak(1)"> 유저 1 발언 </button>
+			<button type="button" style="color: #ffffff; background-color: green; font-weight: 300; padding-top: 20px ;padding-bottom: 20px; font-size:20px;" onclick="speak(1)"> 유저 1 발언 예약 </button>
 			</div>
 			<div style="float: left; width: 33%;">
-			<button type="button" style="color: #ffffff; background-color: green; font-weight: 300; padding-top: 20px ;padding-bottom: 20px; font-size:20px;" onclick="speak(2)"> 유저 2 발언 </button>
+			<button type="button" style="color: #ffffff; background-color: green; font-weight: 300; padding-top: 20px ;padding-bottom: 20px; font-size:20px;" onclick="speak(2)"> 유저 2 발언 예약 </button>
 			</div>
 			<div style="float: left; width: 33%;">
-			<button type="button" style="color: #ffffff; background-color: green; font-weight: 300; padding-top: 20px ;padding-bottom: 20px; font-size:20px;" onclick="speak(3)"> 유저 3 발언 </button>
+			<button type="button" style="color: #ffffff; background-color: green; font-weight: 300; padding-top: 20px ;padding-bottom: 20px; font-size:20px;" onclick="speak(3)"> 유저 3 발언 예약 </button>
 			</div>
 		</div>							
 </body>
