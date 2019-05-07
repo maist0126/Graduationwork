@@ -1,5 +1,5 @@
-var order;
-var real_order;
+var order=1;
+var real_order=0;
 
 var current_username;
 var next_username;
@@ -20,9 +20,17 @@ var start_status = 1;
 	};
 
 	firebase.initializeApp(config);
-	
+		
+	firebase.database().ref('order/0' 
+		).set({
+		order: order,
+		real_order: real_order,
+		username: 0
+	});
+
 	firebase.database().ref().child('order').on('value', initialData);
 	update_order();
+
 	firebase.database().ref('order/'+real_order).set({
 		username: current_username,
 		time: RemainDate,
