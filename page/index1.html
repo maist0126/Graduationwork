@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Graduationwork</title>
+	<link href="./property.css" rel="stylesheet" />
+	<link rel="stylesheet" href="./jquery.mobile-1.4.5.min.css" />
+</head>
+<body>
+	<script src="https://www.gstatic.com/firebasejs/5.11.0/firebase.js"></script>
+	<script src="./jquery-1.11.1.min.js"></script>
+	<script src="./jquery.mobile-1.4.5.min.js"></script>
+	<script src="./app.js"></script>
+	<div data-role='page'>
+		<div data-role='content'>
+			<div style="float: left; width: 33%;">
+				<button type="button" style="color: #ffffff; background-color: black; font-weight: 300; padding-top: 20px ;padding-bottom: 20px; font-size:20px;" onclick="start()"> 발언 시작 </button>
+			</div>
+			<div style="float: left; width: 33%;">
+				<button type="button" style="color: #ffffff; background-color: black; font-weight: 300; padding-top: 20px ;padding-bottom: 20px; font-size:20px;" onclick="stop()"> 발언 종료 </button>
+			</div>
+			<div style="float: left; width: 33%;">
+				<div id="current" style="float: left; width: 50%; color: #000000; font-weight: 700; margin-top: 10px; margin-bottom: 10px; padding-top: 10px ;padding-bottom: 10px; font-size:30px;">
+
+				</div>
+				<div id="next" style="float: left; width: 50%; color: #999999; font-weight: 300; margin-top: 10px; margin-bottom: 10px; padding-top: 10px ;padding-bottom: 10px; font-size:30px;">
+					
+				</div>
+			</div>
+		</div>
+		<div data-role='footer' id= "footer">
+			<h5 id="timer"></h5>
+		</div>
+		<div data-role='content'>
+			<div style="float: left; width: 33%;">
+			<button type="button" style="color: #ffffff; background-color: blue; font-weight: 300; padding-top: 20px ;padding-bottom: 20px; font-size:20px;" onclick="add()"> 더 듣고 싶어요 </button>
+			</div>
+			<div style="float: left; width: 33%;">
+			<button type="button" style="color: #ffffff; background-color: red; font-weight: 300; padding-top: 20px ;padding-bottom: 20px; font-size:20px;" onclick="subtract()"> 그만 듣고 싶어요 </button>
+			</div>
+			<div style="float: left; width: 33%;">
+			<button type="button" style="color: #ffffff; background-color: green; font-weight: 300; padding-top: 20px ;padding-bottom: 20px; font-size:20px;" onclick="speak(1)"> 나도 말할래요 </button>
+			</div>
+		</div>							
+</body>
+</html>
