@@ -1,5 +1,5 @@
-var order=1;
-var real_order=0;
+var order;
+var real_order;
 
 var current_username;
 var next_username;
@@ -29,7 +29,7 @@ var start_status = 1;
 	// 	username: 0
 	// });
 
-	// firebase.database().ref().child('order').on('value', initialData);
+	firebase.database().ref().child('order').on('value', initialData);
 	setInterval('sync()',1000);
 	// sync_order();
 
