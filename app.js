@@ -179,7 +179,7 @@ function msg_time() {
 
 function original(){
   var hd = document.getElementById("footer");
-  hd.style.backgroundColor = '#aaaaaa' ;  
+  hd.style.backgroundColor = '#333333' ;  
   hd.style.color = '#000000' ;  
 }
 
@@ -190,6 +190,13 @@ function add(){
 		time: RemainDate,
 		order: real_order
 	});
+
+	firebase.database().ref('order/'+real_order).set({
+		username: current_username,
+		time: RemainDate,
+		order: real_order
+	});
+
  	var hd = document.getElementById("footer");
   	hd.style.backgroundColor = '#0000ff' ;
   	hd.style.color = '#ffffff' ; 
