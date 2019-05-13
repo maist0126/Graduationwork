@@ -14,12 +14,14 @@
 ///서버와 연결///
 
 function reset(){
-	console.log(":s");
 	firebase.database().ref().set(null);
 	firebase.database().ref('order/0').set({
 		order: 1,
 		real_order: 0,
 		time: 0,
 		username: 0
+	});
+	firebase.database().ref('setting').set({
+		add: 'no'
 	});
 }

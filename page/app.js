@@ -1,5 +1,6 @@
 var order;
 var real_order;
+var alert;
 
 var current_username;
 var next_username;
@@ -24,8 +25,8 @@ var start_status = 1;
 	setInterval('sync()',1000);
 	time_push();
 
-	firebase.database().ref('/setting/add').onUpdate(event => {
-		console.log(event.data.val());
+	firebase.database().ref('setting/').set({
+		add: 'no'
 	});
 }());
 
@@ -33,6 +34,7 @@ var start_status = 1;
 
 function sync(){
   	firebase.database().ref().child('order').on('value', syncData);
+  	firebase.database().ref().child('setting').on('value', syncData2);
 }
 
 function time_push(){
@@ -82,6 +84,28 @@ function syncData(data){
 	m = hours + ":" +  minutes + ":" + seconds ; // 남은 시간 text형태로 변경
 	  
 	document.all.timer.innerHTML = m;   // div 영역에 보여줌 
+}
+
+function syncData2(data){
+	alert = data.val().add;
+	if(alert == 'blue')
+	{
+		var hd = document.getElementById("footer");
+  		hd.style.backgroundColor = 'blue' ;
+  		hd.style.color = '#ffffff' ; 
+  		setTimeout("original()", 500);
+  		firebase.database().ref('setting/').set({
+			add: 'no'
+		});	
+	}else if(alert == 'red'){
+		var hd = document.getElementById("footer");
+  		hd.style.backgroundColor = 'red' ;
+  		hd.style.color = '#ffffff' ; 
+  		setTimeout("original()", 500);
+  		firebase.database().ref('setting/').set({
+			add: 'no'
+		});	
+	}
 }
 
 function gotData1(data){
@@ -158,28 +182,16 @@ function add(){
 	firebase.database().ref().child('order').on('value', gotTime);
 	RemainDate = RemainDate + 1000*10;
 	time_push();
-	alert('blue');
-
- 	var hd = document.getElementById("footer");
-  	hd.style.backgroundColor = 'blue' ;
-  	hd.style.color = '#ffffff' ; 
-  	setTimeout("original()", 500);
+	firebase.database().ref('setting/').set({
+		add: 'blue'
+	});
 }
 
 function subtract(){
 	firebase.database().ref().child('order').on('value', gotTime);
 	RemainDate = RemainDate - 1000*10;
 	time_push();
-	alert('red');
-
-  	var hd = document.getElementById("footer");
-  	hd.style.backgroundColor = 'red' ;
-  	hd.style.color = '#ffffff' ; 
-  	setTimeout("original()", 500);
-}
-
-function alert(data){
 	firebase.database().ref('setting/').set({
-		add: data,
+		add: 'red'
 	});
 }
