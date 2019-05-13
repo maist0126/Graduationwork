@@ -25,7 +25,7 @@ var start_status = 1;
 	time_push();
 
 	firebase.database().ref('/setting/add').onUpdate(event => {
-		console.log(event.data.val());s
+		console.log(event.data.val());
 	});
 }());
 
