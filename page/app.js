@@ -76,6 +76,10 @@ function syncData(data){
   		} catch (e) {
   		}
 	}
+	if ((order - real_order) > 2){
+		var more = order - real_order - 2;
+		document.getElementById("more").innerHTML="+" + more;
+	}
 	var currentTime = data.val()[real_order].time;
 	var hours = Math.floor((currentTime % (1000 * 60 * 60 * 24)) / (1000*60*60));
 	var minutes = Math.floor((currentTime % (1000 * 60 * 60)) / (1000*60));
@@ -123,6 +127,10 @@ function gotData1(data){
   			real_order += -1;
   			order_push();
   		}
+	}
+	if ((order - real_order) > 2){
+		var more = order - real_order - 2;
+		document.getElementById("more").innerHTML="+" + more;
 	}
 }
 
