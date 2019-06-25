@@ -4,6 +4,7 @@ var alert;
 
 var current_username;
 var next_username;
+var more_username;
 
 var RemainDate;
 
@@ -22,7 +23,7 @@ var start_status = 1;
 	};
 	firebase.initializeApp(config);
 
-	setInterval('sync()',1000);
+	setInterval('sync()',10);
 	time_push();
 
 	firebase.database().ref('setting/').set({
@@ -66,14 +67,25 @@ function syncData(data){
 	try {
 		current_username = data.val()[real_order].username;
 		next_username = data.val()[real_order+1].username;
+		more_username = data.val()[real_order+2].username;
 		document.getElementById("current").innerHTML="유저 " + current_username;
 		document.getElementById("next").innerHTML="유저 " + next_username;
+		document.getElementById("more").innerHTML="유저 " + more_username;
 	} catch (e) {
   		try{		
   			current_username = data.val()[real_order].username;
+  			next_username = data.val()[real_order+1].username;
 			document.getElementById("current").innerHTML="유저 " + current_username;
-			document.getElementById("next").innerHTML="없음" 
+			document.getElementById("next").innerHTML="유저 " + next_username;
+			document.getElementById("more").innerHTML="없음"; 
   		} catch (e) {
+  			try{		
+  			current_username = data.val()[real_order].username;
+			document.getElementById("current").innerHTML="유저 " + current_username;
+			document.getElementById("next").innerHTML="없음"; 
+			document.getElementById("more").innerHTML="없음"; 
+	  		} catch (e) {
+	  		}
   		}
 	}
 	var currentTime = data.val()[real_order].time;
@@ -112,16 +124,27 @@ function gotData1(data){
 	try {
 		current_username = data.val()[real_order].username;
 		next_username = data.val()[real_order+1].username;
+		more_username = data.val()[real_order+2].username;
 		document.getElementById("current").innerHTML="유저 " + current_username;
 		document.getElementById("next").innerHTML="유저 " + next_username;
+		document.getElementById("more").innerHTML="유저 " + more_username;
 	} catch (e) {
   		try{		
   			current_username = data.val()[real_order].username;
+  			next_username = data.val()[real_order+1].username;
 			document.getElementById("current").innerHTML="유저 " + current_username;
-			document.getElementById("next").innerHTML="없음" 
+			document.getElementById("next").innerHTML="유저 " + next_username;
+			document.getElementById("more").innerHTML="없음"; 
   		} catch (e) {
-  			real_order += -1;
-  			order_push();
+  			try{		
+  			current_username = data.val()[real_order].username;
+			document.getElementById("current").innerHTML="유저 " + current_username;
+			document.getElementById("next").innerHTML="없음"; 
+			document.getElementById("more").innerHTML="없음"; 
+	  		} catch (e) {
+	  			real_order += -1;
+  				order_push();
+	  		}
   		}
 	}
 }
@@ -189,9 +212,10 @@ function add(){
 
 function subtract(){
 	firebase.database().ref().child('order').on('value', gotTime);
-	RemainDate = RemainDate - 1000*10;
+	RemainDate = RemainDate - 1000*5;
 	time_push();
 	firebase.database().ref('setting/').set({
 		add: 'red'
 	});
 }
+

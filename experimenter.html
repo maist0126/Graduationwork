@@ -2,16 +2,15 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>center</title>
+	<title>Experimenter</title>
 	<link href="./property.css" rel="stylesheet" />
 	<link rel="stylesheet" href="./page/jquery.mobile-1.4.5.min.css" />
-	<audio id='audio_play' src='./src/sound.mp3'></audio>
 </head>
 <body>
 	<script src="https://www.gstatic.com/firebasejs/5.11.0/firebase.js"></script>
 	<script src="./page/jquery-1.11.1.min.js"></script>
 	<script src="./page/jquery.mobile-1.4.5.min.js"></script>
-	<script src="./index.js"></script>
+	<script src="./page/app.js"></script>
 	<div data-role='page'>
 		<div data-role='content'>
 			<div style="float: left; width: 100%;">
@@ -39,6 +38,14 @@
 		</div>
 		<div data-role='footer' id= "footer">
 			<h5 id="timer" style="font-size:100px;"></h5>
-		</div>						
+		</div>
+		<div data-role='content'>
+			<div style="float: left; width: 50%;">
+				<button type="button" style="color: #ffffff; background-color: black; font-weight: 300; padding-top: 20px ;padding-bottom: 20px; font-size:20px;" onclick="start()"> 발언 시작 </button>
+			</div>
+			<div style="float: left; width: 50%;">
+				<button type="button" style="color: #ffffff; background-color: black; font-weight: 300; padding-top: 20px ;padding-bottom: 20px; font-size:20px;" onclick="stop()"> 발언 종료 </button>
+			</div>
+		</div>								
 </body>
 </html>
