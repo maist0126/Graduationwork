@@ -7,6 +7,7 @@ var next_username;
 var more_username;
 
 var RemainDate;
+var alarm_state;
 
 var start_status = 1;
 
@@ -154,7 +155,7 @@ function gotData1(data){
 function speak(userId){
 	firebase.database().ref('order/'+ order).set({
 		username: userId,
-		time: 60000,
+		time: 20000,
 		order: order
 	});
 	sync();
@@ -187,10 +188,22 @@ function stop(){
 function msg_time() {
 	if (RemainDate <= 0) {      
 		stop();
-	}else{
+	} else if (RemainDate >= 1000*16) {
+		alarm_state = 1;
+		RemainDate = RemainDate - 1000;
+	    time_push();
+	} else if (RemainDate <= 1000*15) {
+		if (alarm_state == 1){
+		    play();
+		    alarm_state = 0;
+		}
+		RemainDate = RemainDate - 1000;
+	    time_push();
+	}
+	else{
 	    RemainDate = RemainDate - 1000;
 	    time_push();
-	  }
+	}
 }
 
 ///더듣, 그만듣///
@@ -217,5 +230,17 @@ function subtract(){
 	firebase.database().ref('setting/').set({
 		add: 'red'
 	});
+}
+
+//audio//
+
+function play() { 
+    var audio = document.getElementById('audio_play'); 
+    if (audio.paused) { 
+        audio.play(); 
+    }else{ 
+        audio.pause(); 
+        audio.currentTime = 0;
+    } 
 }
 

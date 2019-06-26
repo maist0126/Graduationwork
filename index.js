@@ -7,6 +7,7 @@ var next_username;
 var more_username;
 
 var RemainDate;
+var alarm_state;
 
 var start_status = 1;
 
@@ -89,6 +90,26 @@ function syncData(data){
   		}
 	}
 	var currentTime = data.val()[real_order].time;
+	if (currentTime >= 1000*11){
+		alarm_state = 1;
+	}
+
+	if (alarm_state == 1){
+		if (currentTime <= 1000*10){
+			console.log("b");
+			console.log("0");
+		    var audio = document.getElementById('audio_play'); 
+		    if (audio.paused) { 
+		        audio.play(); 
+		        console.log("1");
+		    }else{ 
+		        audio.pause(); 
+		        audio.currentTime = 0;
+		        console.log("2"); 
+		    } 
+		    alarm_state = 0;
+		}
+	}
 	var hours = Math.floor((currentTime % (1000 * 60 * 60 * 24)) / (1000*60*60));
 	var minutes = Math.floor((currentTime % (1000 * 60 * 60)) / (1000*60));
 	var seconds = Math.floor((currentTime % (1000 * 60)) / 1000);
@@ -154,7 +175,7 @@ function gotData1(data){
 function speak(userId){
 	firebase.database().ref('order/'+ order).set({
 		username: userId,
-		time: 60000,
+		time: 20000,
 		order: order
 	});
 	sync();
@@ -171,7 +192,7 @@ function start(){
 
   		firebase.database().ref().child('order').on('value', gotData1);
   		firebase.database().ref().child('order').on('value', gotTime);
-    	tid=setInterval('msg_time()',1000);
+    	tid=setInterval('msg_time()',1000);    	
   	}
 }
 
@@ -189,6 +210,7 @@ function msg_time() {
 		stop();
 	}else{
 	    RemainDate = RemainDate - 1000;
+	    console.log("s");
 	    if (RemainDate <= 1000*10){
 	    	console.log("s");
 	    }
@@ -225,12 +247,14 @@ function subtract(){
 //audio//
 
 function play() { 
+	console.log("0");
     var audio = document.getElementById('audio_play'); 
     if (audio.paused) { 
         audio.play(); 
-        console.log("s");
+        console.log("1");
     }else{ 
         audio.pause(); 
-        audio.currentTime = 0 
+        audio.currentTime = 0;
+        console.log("2"); 
     } 
 }
