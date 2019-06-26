@@ -216,8 +216,8 @@ function original(){
 
 function add(){
 	firebase.database().ref().child('order').on('value', gotTime);
-	RemainDate = RemainDate + 1000*10;
-	time_push();
+	// RemainDate = RemainDate + 1000*10;
+	// time_push();
 	firebase.database().ref('setting/').set({
 		add: 'blue'
 	});
@@ -225,8 +225,8 @@ function add(){
 
 function subtract(){
 	firebase.database().ref().child('order').on('value', gotTime);
-	RemainDate = RemainDate - 1000*5;
-	time_push();
+	// RemainDate = RemainDate - 1000*5;
+	// time_push();
 	firebase.database().ref('setting/').set({
 		add: 'red'
 	});
