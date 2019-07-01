@@ -207,3 +207,8 @@ function play() {
     } 
 }
 
+function original(){
+	var hd = document.getElementById("footer");
+	hd.style.backgroundColor = '#e9e9e9' ;  
+	hd.style.color = '#000000' ;  
+}
