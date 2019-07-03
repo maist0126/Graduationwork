@@ -1,3 +1,0 @@
-node_modules/
-package-lock.json
-# assume all js in static dir are compiled, so ignore
