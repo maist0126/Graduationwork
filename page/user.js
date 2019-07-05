@@ -155,7 +155,7 @@ function gotData1(data){
 function speak(userId){
 	firebase.database().ref('order/'+ order).set({
 		username: userId,
-		time: 20000,
+		time: 60000,
 		order: order
 	});
 	sync();
